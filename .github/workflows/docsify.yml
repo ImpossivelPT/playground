@@ -5,8 +5,10 @@ jobs:
   bump:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@main
-    - uses: tool3/docsify-action@main
+    - uses: actions/checkout@master
+      with:
+        ref: main
+    - uses: tool3/docsify-action@master
       with:
         dir: docs-team
         branch: main
