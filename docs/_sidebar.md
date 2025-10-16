@@ -1,5 +1,3 @@
 * [Home](/)
 * [Test](test.md)
 * [Others](others/README.md)
-* [Others 1](others/others_1.md)
-* [Others 2](others/others_2.md)
