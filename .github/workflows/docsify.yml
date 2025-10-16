@@ -1,0 +1,10 @@
+name: docsify-action
+run-name: ${{ github.actor }} is generating docsify pages
+on: [push]
+jobs:
+  check-bats-version:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: tool3/docsify-action@v1.0.3
+        with:
+          github_token: ${{ secrets.GP_TOKEN }}
