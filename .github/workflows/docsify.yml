@@ -1,36 +1,14 @@
 name: Publish Docsify site
 
-on:
-  push:
-    branches:
-      - main
-
-permissions:
-  contents: read
-  pages: write
-  id-token: write
+on: [push]
 
 jobs:
-  deploy:
+  bump:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-
-      # (Optional) Install dependencies if you have a package.json in /docs-team
-      - name: Install dependencies
-        run: |
-          cd docs-team
-          if [ -f package.json ]; then npm install; fi
-
-      # Deploy /docs-team directly to GitHub Pages
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GP_TOKEN }}
-          publish_dir: ./docs-team
+    - uses: actions/checkout@master
+    - uses: tool3/docsify-action@master
+      with:
+        branch: main
+        dir: docs-team
+        github_token: ${{ secrets.GP_TOKEN }}
